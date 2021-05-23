@@ -1,4 +1,5 @@
 import 'package:LEARNING/parsing_json/json_parsing.dart';
+import 'package:LEARNING/parsing_json/json_parsing_map.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 
@@ -10,6 +11,6 @@ import 'package:http/http.dart';
 void main() => runApp(new MaterialApp(
       /*...*/
       //...
-      home: JsonParsingSimple(),
+      home: JsonParsingMap(),
     ));
 

@@ -30,12 +30,12 @@ class _JsonParsingSimpleState extends State<JsonParsingSimple> {
         child: Container(
           child: FutureBuilder(
             future: getData(),
-            builder: (context, AsyncSnapshot<dynamic>snapshot) {
-              if(snapshot.hasData){
-                return Text(snapshot.data[0]['title']);
+            builder: (context, AsyncSnapshot<dynamic> snapshot) {
+              if (snapshot.hasData) {
+                return createListview(snapshot.data, context);
+                // return Text(snapshot.data[0]['title']);
               }
               return CircularProgressIndicator();
-
             },
           ),
         ),
@@ -53,6 +53,36 @@ class _JsonParsingSimpleState extends State<JsonParsingSimple> {
     // });
 
     return data;
+  }
+
+  Widget createListview(List data, BuildContext context) {
+    return Container(
+      child: ListView.builder(
+          itemCount: data.length,
+          itemBuilder: (context, int index) {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Divider(
+                  height: 5.0,
+                ),
+                ListTile(
+                  title: Text("${data[index]["title"]}"),
+                  subtitle: Text("${data[index]["body"]}"),
+                  leading: Column(
+                    children: <Widget>[
+                      CircleAvatar(
+                        backgroundColor: Colors.black26,
+                        radius: 23,
+                        child: Text("${data[index]["id"]}"),
+                      )
+                    ],
+                  ),
+                )
+              ],
+            );
+          }),
+    );
   }
 }
 
@@ -72,4 +102,3 @@ class Network {
     }
   }
 }
-
