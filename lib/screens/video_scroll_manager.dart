@@ -8,14 +8,14 @@ import 'package:flutter/rendering.dart';
 import 'package:http/http.dart';
 import 'package:preload_page_view/preload_page_view.dart';
 
-class JsonParsingMap extends StatefulWidget {
-  const JsonParsingMap({Key key}) : super(key: key);
+class VideoScrollManager extends StatefulWidget {
+  const VideoScrollManager({Key key}) : super(key: key);
 
   @override
   _JsonParsingMapState createState() => _JsonParsingMapState();
 }
 
-class _JsonParsingMapState extends State<JsonParsingMap> {
+class _JsonParsingMapState extends State<VideoScrollManager> {
   Future<VideoList> data;
   int pageIndex=0;
   PreloadPageController _controller;
